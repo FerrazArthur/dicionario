@@ -26,7 +26,7 @@ typedef struct{
 //-
 Info *createInfo(char *value){
         Info *inf=NULL;
-	int  n = strlen(value)/sizeof(char);
+	int  n = (strlen(value)/sizeof(char) + 1);
         if(inf = (Info *) malloc(sizeof(Info))){
 		inf->value = (char *) malloc(sizeof(char)*n);
                 strncpy(inf->value,value, n);
@@ -537,6 +537,7 @@ int getBalanceBST(BST *bst){
                 return 0;
         return heightBST(leftBST(bst)) - heightBST(rightBST(bst));
 }
+//assim como para a bst, vamos procurar o elemento e caminhar pela arvore ate encontrar ele 
 int deleteAVL(BST **bst, char *value){
         int res;
         BST *temp = NULL;

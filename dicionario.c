@@ -37,24 +37,37 @@ int searchHashAVL(BST *hash[], char *find){
 }
 void deleteHashAVL(BST *hash[], char *del){
 	int i = pos(del);//encontramos o codigo hash dessa string
-	if(deleteAVL(&hash[i], del))//não consegui implementar deleteAVL() a tempo!
+	if(deleteAVL(&hash[i], del))
 		printf("Sucesso\n");
 	else
 		printf("Fracasso\n");
 }
-int main(){
+void printHash( BST *hash[]){
+	int i = 0;
+	Head *lst = NULL;
+	while ( i < TABLE){
+		lst = inOrderTraversalBST(hash[i]);
+		freeLST(lst);
+		i++;
+	}
+}
+int main()
+{
 	int n = 0;
-	char *temp;
+	char temp[100];
 	BST *hash[TABLE];
 	//inicializa todo elemento BST em hash para NULL;
 	setHash(hash);
-	while(1){
+	while(1)
+    {
 		printf("[1] Inserir palavra no dicionário\n");
 		printf("[2] Consultar palavra no dicionário\n");
 		printf("[3] Remover palavra do dicionário\n");
-		printf("[4] Sair\n");
+		printf("[4] Printar dicionário\n");
+		printf("[5] Sair\n");
 		scanf("%d", &n);
-		switch(n){
+        switch(n)
+        {
 			case 1:
 				printf("Digite a palavra: ");
 				scanf("%s", temp);
@@ -74,6 +87,9 @@ int main(){
 				deleteHashAVL(hash, temp);
 				break;
 			case 4:
+				printHash(hash);
+				break;
+			case 5:
 				return 0;
 			default:
 				break;
