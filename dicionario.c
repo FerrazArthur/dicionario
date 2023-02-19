@@ -47,6 +47,9 @@ void printHash( BST *hash[]){
 	Head *lst = NULL;
 	while ( i < TABLE){
 		lst = inOrderTraversalBST(hash[i]);
+        printf("Tabela[%02d] :", i);
+        imprimeLST(lst);
+        printf("\n");
 		freeLST(lst);
 		i++;
 	}

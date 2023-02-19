@@ -1,3 +1,10 @@
+//Nessa biblioteca, temos a implementação de três estrutras de dados paralelas, que são utilizadas em conjunto, são elas:
+//Info -> Estrutura geral para armazenar uma cadeia de caracteres qualquer.
+//BST  -> Nó de uma arvore de busca binária que não implementa estrutura específica pra cabeça.
+//Node -> Nó de uma lista com elementos de informação Info. Implementa Head como cabeça da estrutura.
+//Head -> Como descrito anteriormente, é a cabeça de uma lista cujos elementos são estruturas Node.
+//BSTNode-> Nó de uma lista com elementos de informação BST. Implementa Head cmo cabeça da estrutura.
+//BSTHead-> Como descrito anteriormente, é a cabeça de uma lista cujos elementos são estruturas BSTNode. Útilizada como auxiliar em funções de manipulação da BST.
 typedef struct{
         char *value;
 }Info;
