@@ -170,10 +170,10 @@ void insertLastLST(Head **lst, BST *bst)
     //essa função recebe uma BST para que as verificações de condições sejam feitas aqui, reduzindo a complexidade das funções de manipulação de BST e facilitando o entendimento das mesmas.
     Node *ptr = NULL;
     if(isEmptyBST(bst))
-            return;
+        return;
     Info *inf = createInfo(bst->inf->value);//cria um novo endereço Info com valor  bst->inf->value
     if(!inf)
-            return;
+        return;
     if(!*lst)
         *lst = createHeadLST();//cria a cabeça automaticamente caso seja passado um valor NULL;
     ptr = createNodeLST(inf);
@@ -325,17 +325,17 @@ BST *searchBST2(BST *bst, Info *inf)
         {//se existe a subarvore esquerda, procure em todos os nós dela;
 			if(strcmp(rootBST(bst->left)->value, inf->value) == 0)//se essa sub.esquerda for o valor desejado, salve a raiz dela.
 				ptr = bst;
-                //enquanto não encontrar, passe recursivamente para as subarvores
-                searchBST2(leftBST(bst), inf);
-                searchBST2(rightBST(bst), inf);
+            //enquanto não encontrar, passe recursivamente para as subarvores
+            searchBST2(leftBST(bst), inf);
+            searchBST2(rightBST(bst), inf);
 		}
 		if(!isEmptyBST(bst->right))
         {//se existe a subarvore direita, procura em todos os nós dela;
 			if(strcmp(rootBST(bst->right)->value, inf->value) == 0)//se essa sub.direita for o valor desejado, salve a raiz dela 
 				ptr = bst;
-                //enquanto não encontrar, passe recursivamente para as subarvores
-                searchBST2(leftBST(bst), inf);
-                searchBST2(rightBST(bst), inf);
+            //enquanto não encontrar, passe recursivamente para as subarvores
+            searchBST2(leftBST(bst), inf);
+            searchBST2(rightBST(bst), inf);
 		}
 	}
 	return ptr;
