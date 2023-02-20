@@ -8,26 +8,34 @@
     TRABALHO 3 DE ESTRUTURAS DE DADOS : DICIONÁRIO
 */
 
-void setHash(BST *hs[]){
-	for(int i = 0; i < TABLE; i++){
+void setHash(BST *hs[])
+{
+	for(int i = 0; i < TABLE; i++)
+    {
 		hs[i] = NULL;
 	}
 }
+
 //retorna o indice dessa string 
-int pos(char *value){
+int pos(char *value)
+{
 	int sum = 0, i;
 	for(i = 0; value[i] != '\0'; i++)
 		sum += (int) value[i];
 	return (sum/i)%TABLE;
 }
-void insertHashAVL(BST *hash[], char *new){
+
+void insertHashAVL(BST *hash[], char *new)
+{
 	int i = pos(new);//encontramos o codigo hash dessa string
 	if(insertAVL(&hash[i], createNodeBST(createInfo(new))))
 		printf("Sucesso\n");
 	else
 		printf("Fracasso\n");
 }
-int searchHashAVL(BST *hash[], char *find){
+
+int searchHashAVL(BST *hash[], char *find)
+{
 	int i = pos(find), ret = 0;
 	Info *temp = createInfo(find);
 	if(searchBST(hash[i], temp) != NULL)
@@ -35,25 +43,35 @@ int searchHashAVL(BST *hash[], char *find){
 	free(temp);
 	return ret;
 }
-void deleteHashAVL(BST *hash[], char *del){
+
+void deleteHashAVL(BST *hash[], char *del)
+{
 	int i = pos(del);//encontramos o codigo hash dessa string
 	if(deleteAVL(&hash[i], del))
 		printf("Sucesso\n");
 	else
 		printf("Fracasso\n");
 }
-void printHash( BST *hash[]){
+
+void printHash( BST *hash[])
+{
 	int i = 0;
 	Head *lst = NULL;
-	while ( i < TABLE){
+	while ( i < TABLE)
+    {
 		lst = inOrderTraversalBST(hash[i]);
-        printf("Tabela[%02d] :", i);
-        imprimeLST(lst);
-        printf("\n");
-		freeLST(lst);
+
+        if(!isEmptyLST(lst))
+        {
+            printf("Tabela[%02d] :", i);
+            imprimeLST(lst);
+            printf("\n");
+		    freeLST(lst);
+        }
 		i++;
 	}
 }
+
 int main()
 {
 	int n = 0;
